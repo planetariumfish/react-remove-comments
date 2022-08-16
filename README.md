@@ -10,7 +10,12 @@ Set up using:
 - React: v18.2.0
 - TypeScript: v4.6.4
 - React Router: v6
+- Chakra UI: v2.2.8
 
 ## Status
 
 Project is: _in progress_
+
+## Todo:
+
+Some tidying up and prettifying

@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Center } from "@chakra-ui/react";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Output from "./pages/Output";
+import ReadFile from "./pages/ReadFile";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState<string>("");
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Center width="100vw" mt={5}>
+      <Routes>
+        <Route
+          path="/"
+          element={<ReadFile callback={(str) => setText(str)} />}
+        />
+        <Route path="/output" element={<Output text={text} />} />
+      </Routes>
+    </Center>
+  );
 }
 
-export default App
+export default App;

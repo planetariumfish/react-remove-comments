@@ -14,7 +14,10 @@ function App() {
           path="/"
           element={<ReadFile callback={(str) => setText(str)} />}
         />
-        <Route path="/output" element={<Output text={text} />} />
+        <Route
+          path="/output"
+          element={<Output text={text} clearText={(str) => setText(str)} />}
+        />
       </Routes>
     </Center>
   );

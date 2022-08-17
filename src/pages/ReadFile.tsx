@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  Center,
   Button,
   VStack,
   Heading,
   FormControl,
   HStack,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import FilePicker from "chakra-ui-file-picker";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ type Props = {
 
 const ReadFile = ({ callback }: Props) => {
   const [file, setFile] = React.useState<File>();
+  const [invalid, setInvalid] = React.useState<boolean>(false);
   const navigate = useNavigate();
 
   const getText = () => {
@@ -31,10 +32,11 @@ const ReadFile = ({ callback }: Props) => {
   return (
     <VStack gap={5}>
       <Heading as="h1">React Remove Comments</Heading>
-      <FormControl>
+      <FormControl isInvalid={invalid}>
         <HStack>
           <FilePicker
             onFileChange={(fileList) => {
+              setInvalid(false);
               setFile(fileList[0]);
             }}
             placeholder="Choose a .txt file"
@@ -44,6 +46,10 @@ const ReadFile = ({ callback }: Props) => {
           />
           <Button
             onClick={() => {
+              if (!file) {
+                setInvalid(true);
+                return;
+              }
               getText();
               navigate("/output");
             }}
@@ -51,6 +57,7 @@ const ReadFile = ({ callback }: Props) => {
             Process
           </Button>
         </HStack>
+        {invalid && <FormErrorMessage>Please choose a file</FormErrorMessage>}
       </FormControl>
     </VStack>
   );

@@ -1,21 +1,19 @@
 import {
   Box,
   Button,
-  Center,
   Container,
   Heading,
   HStack,
-  Spacer,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 type Props = {
   text: string;
+  clearText: (str: string) => void;
 };
 
-const Output = ({ text }: Props) => {
+const Output = ({ text, clearText }: Props) => {
   const navigate = useNavigate();
   return (
     <VStack gap={3}>
@@ -34,7 +32,14 @@ const Output = ({ text }: Props) => {
         <Button onClick={() => navigator.clipboard.writeText(text)}>
           Copy text to clipboard
         </Button>
-        <Button onClick={() => navigate("/")}>Go back</Button>
+        <Button
+          onClick={() => {
+            clearText("");
+            navigate("/");
+          }}
+        >
+          Go back
+        </Button>
       </HStack>
     </VStack>
   );

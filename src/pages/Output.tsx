@@ -9,12 +9,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   text: string;
 };
 
 const Output = ({ text }: Props) => {
+  const navigate = useNavigate();
   return (
     <VStack gap={3}>
       <Heading as="h1">Your output:</Heading>
@@ -32,6 +34,7 @@ const Output = ({ text }: Props) => {
         <Button onClick={() => navigator.clipboard.writeText(text)}>
           Copy text to clipboard
         </Button>
+        <Button onClick={() => navigate("/")}>Go back</Button>
       </HStack>
     </VStack>
   );

@@ -2,7 +2,9 @@ export const removeComments = (text: string) => {
   const lines = text.split("\n");
   let deleteNext = false;
 
-  const newLines = lines.map((line) => {
+  const newLines: string[] = [];
+
+  lines.forEach((line) => {
     if (line.includes("/")) {
       let index = line.indexOf("/");
 
@@ -12,7 +14,7 @@ export const removeComments = (text: string) => {
           if (line.charAt(index + 1) === " ") index++;
           line = line.slice(index + 1);
           deleteNext = false;
-          return line;
+          newLines.push(line);
         }
       }
 
@@ -25,10 +27,8 @@ export const removeComments = (text: string) => {
         line = line.slice(0, index);
       }
     }
-    if (!deleteNext) return line;
+    if (!deleteNext) newLines.push(line);
   });
-
-  //TODO: Loop over newLines and remove duplicate empty strings to tidy up
 
   return newLines.join("\n");
 };

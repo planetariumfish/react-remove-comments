@@ -8,7 +8,7 @@ function App() {
   const [text, setText] = useState<string>("");
 
   return (
-    <Center width="100vw" mt={5}>
+    <Center width="100vw" my={5}>
       <Routes>
         <Route
           path="/"

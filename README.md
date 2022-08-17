@@ -18,6 +18,6 @@ Project is: _probably done_
 
 ## To run:
 
-Clone the repository and `cd` into it
-Run `yarn install`
-Run `yarn dev`
+Clone the repository and `cd` into it,
+run `yarn install`,
+run `yarn dev`

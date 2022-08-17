@@ -14,8 +14,10 @@ Set up using:
 
 ## Status
 
-Project is: _in progress_
+Project is: _probably done_
 
-## Todo:
+## To run:
 
-Some tidying up and prettifying
+Clone the repository and `cd` into it
+Run `yarn install`
+Run `yarn dev`

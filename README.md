@@ -15,8 +15,13 @@ This is a simple app in React that takes an uploaded .txt file, strips out comme
 - as a single line comment in the middle of a line
 - at the start of a line
 - from the middle of a line
-- ending at the end line
+- ending at the end of a line
 - ending in the middle of a line
+
+Not handling:
+
+- complex edge cases
+- using `//`, `/*`, and `*/` as strings (they are treated the same as comment markers)
 
 ## Technologies
 

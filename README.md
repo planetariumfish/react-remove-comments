@@ -2,6 +2,22 @@
 
 This is a simple app in React that takes an uploaded .txt file, strips out comments, and displays the result.
 
+## Cases handled
+
+`//` single line comments:
+
+- at the start of a line
+- in the middle of a line
+
+`/* */` multiline comments:
+
+- as a single line comment at the start of a line
+- as a single line comment in the middle of a line
+- at the start of a line
+- from the middle of a line
+- ending at the end line
+- ending in the middle of a line
+
 ## Technologies
 
 Set up using:

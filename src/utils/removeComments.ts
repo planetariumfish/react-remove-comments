@@ -24,6 +24,7 @@ export const removeComments = (text: string) => {
       if (insideMultilineComment) {
         const prev = line.charAt(index - 1);
         if (prev === "*") {
+          if (index === line.length - 1) return; // end of a line
           if (line.charAt(index + 1) === " ") index++;
           line = line.slice(index + 1);
           insideMultilineComment = false;

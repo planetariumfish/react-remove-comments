@@ -25,7 +25,7 @@ const Output = ({ text, clearText }: Props) => {
           maxWidth="container.md"
           sx={{ whiteSpace: "pre-wrap" }}
         >
-          {text ? text : "No text defined"}
+          {text || "No text defined"}
         </Container>
       </Box>
       <HStack>

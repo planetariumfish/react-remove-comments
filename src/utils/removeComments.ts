@@ -1,54 +1,43 @@
 export const removeComments = (text: string) => {
-  const lines = text.split("\n");
+  // we're going to push characters into this string if they're not inside comments
+  let result = "";
+  // comment state toggle
   let isComment = false;
+  let isMultiline = false;
 
-  const newLines: string[] = [];
+  for (let i = 0; i < text.length; i++) {
+    // we're looking at each character and the next after that
+    const char = text.charAt(i);
+    const nextchar = text.charAt(i + 1);
 
-  lines.forEach((line) => {
-    // if we're in the middle of a multiline comment, just toss the line
-    if (isComment && !line.includes("/")) return;
-
-    // line is "", or has no "/" characters, and we're not in the middle of a comment:
-    if (!line || (!line.includes("/") && !isComment)) {
-      newLines.push(line);
-      return;
+    //comment start
+    if (char === "/") {
+      // single line comment
+      if (nextchar === "/") isComment = true;
+      // multiline comment
+      if (nextchar === "*") {
+        isComment = true;
+        isMultiline = true;
+      }
     }
-
-    // line includes one or more "/" characters
-    if (line.includes("/")) {
-      // handling end of multiline comment at the end of the line
-      if (isComment && line.endsWith("*/")) {
+    // multiline comment end
+    if (char === "*") {
+      if (nextchar === "/") {
         isComment = false;
-        return;
+        isMultiline = false;
+        i++;
+        // increment by one more if it's a space
+        if (text.charAt(i + 1) === " ") i++;
+        continue;
       }
-
-      let cleanLine = ""; // for multiline comments
-
-      for (let i = 0; i < line.length; i++) {
-        if (line.charAt(i) === "/") {
-          // single line comment - just return the part before "//"
-          if (line.charAt(i + 1) === "/") {
-            // only add to result if there's something to push (don't push "")
-            if (i > 0) newLines.push(line.slice(0, i));
-            return;
-          }
-          // start of multiline comment - return part before "/*", toggle multiline comment on
-          if (line.charAt(i + 1) === "*") {
-            isComment = true;
-            if (i > 0) cleanLine = line.slice(0, i);
-          }
-          // end of multiline comment - return part after "*/"
-          if (line.charAt(i - 1) === "*") {
-            isComment = false;
-            if (line.charAt(i + 1) === " ") i++; // space after slash (nicer output)
-            if (i < line.length) cleanLine += line.slice(i + 1);
-          }
-        }
-      }
-      // if we cut out a comment send the new line, if there were no comments, send the original
-      if (cleanLine) newLines.push(cleanLine);
-      else newLines.push(line);
     }
-  });
-  return newLines.join("\n");
+    // turn off single line comment at the end of the line
+    if (char === "\n" && isComment && !isMultiline) {
+      isComment = false;
+    }
+
+    if (!isComment) result += char;
+  }
+
+  return result;
 };

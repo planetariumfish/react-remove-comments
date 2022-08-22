@@ -1,0 +1,29 @@
+asdsadasd;
+sad;
+asdas;
+das;
+//////asd asdasd sqd asd as
+
+/*sadsadsa */ ////asdasd
+sadasdas;
+
+/*asdsadasdas*/ sadasdsadasdasd;
+
+/* //// asds*/
+
+/*
+
+a
+sdas
+d
+sadas
+///
+/
+/dasdasd
+
+
+*
+/
+*/
+
+sadsad;

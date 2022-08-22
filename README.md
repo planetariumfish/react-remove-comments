@@ -18,10 +18,11 @@ This is a simple app in React that takes an uploaded .txt file, strips out comme
 - ending at the end of a line
 - ending in the middle of a line
 - commenting out just a part of a line
+- multiple comments per line
+- `//` in the middle of a `/* */` comment
 
 Not handling:
 
-- complex edge cases
 - using `//`, `/*`, and `*/` as strings (they are treated the same as comment markers)
 
 It should leave any slashes unrelated to comments untouched.
@@ -42,6 +43,6 @@ Project is: _probably done_
 
 ## To run:
 
-Clone the repository and `cd` into it,
-run `yarn install`,
+Clone the repository and `cd` into it,  
+run `yarn install`,  
 run `yarn dev`

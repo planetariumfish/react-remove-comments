@@ -1,0 +1,30 @@
+asdsadasd
+sad
+asdas
+das
+ //////asd asdasd sqd asd as
+
+/*sadsadsa */ ////asdasd
+sadasdas 
+
+
+/*asdsadasdas*/ sadasdsadasdasd
+I should be here
+/* //// asds*/
+I should be here
+/* I shouldn't - 1
+multiline - 1
+a
+sdas
+d
+sadas
+/// I shouldn't - 2
+/ I shouldn't - 3
+/dasdasd I shouldn't - 4
+multiline - 2
+multiline - 3
+* I shouldn't - 5
+/ I shouldn't - 6
+Should I be here? */
+I should be here
+sadsad

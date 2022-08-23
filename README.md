@@ -25,7 +25,9 @@ Not handling:
 
 - using `//`, `/*`, and `*/` as strings (they are treated the same as comment markers)
 
-It should leave any slashes unrelated to comments untouched.
+Notes:
+
+- `\n` characters are left at the end of `//` comments for consistent behavior. They are also left after a `*/` section as they are not considered part of the comment anymore.
 
 ## Technologies
 

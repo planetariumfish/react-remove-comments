@@ -26,7 +26,7 @@ export const removeComments = (text: string) => {
         isComment = false;
         isMultiline = false;
         i++;
-        // increment by one more if it's a space
+        // increment by one more if it's a space (nicer output)
         if (text.charAt(i + 1) === " ") i++;
         continue;
       }
@@ -36,7 +36,7 @@ export const removeComments = (text: string) => {
       isComment = false;
     }
 
-    if (!isComment) result += char;
+    if (!isComment && !isMultiline) result += char;
   }
 
   return result;
